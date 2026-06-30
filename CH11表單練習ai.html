@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ch11 表單練習(JavaScript)</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <style>
+        /* ========================================================
+           ✨ 質感美化 CSS
+           ======================================================== */
+        body {
+            font-family: 'PingFang TC', 'Microsoft JhengHei', sans-serif;
+            background-color: #f4f7f6 !important; /* 舒服的淺灰綠背景 */
+        }
+        
+        /* 標題美化：漸層與圓角 */
+        .form-header {
+            background: linear-gradient(135deg, #0d6efd, #004085);
+            color: white;
+            border-radius: 12px 12px 0 0;
+            font-weight: 900;
+            letter-spacing: 2px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        /* 表單主體卡片化 */
+        .form-container {
+            background-color: white;
+            border-radius: 0 0 12px 12px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+            padding: 2.5rem !important;
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+
+        /* 輸入框聚焦效果 */
+        .form-control:focus, .form-select:focus {
+            border-color: #86b7fe;
+            box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.15);
+        }
+
+        /* 表單標題加粗提升質感 */
+        .form-label, .fw-900 {
+            font-weight: 700 !important;
+            color: #333333;
+        }
+
+        /* 自訂狀態開關外觀優化 */
+        .form-switch .form-check-input {
+            width: 2.5em;
+            cursor: pointer;
+        }
+
+        /* 專屬按鈕美化 */
+        .btn-submit {
+            background: linear-gradient(135deg, #0d6efd, #0a58ca);
+            border: none;
+            font-weight: 600;
+            padding: 0.75rem;
+            transition: all 0.2s;
+        }
+        .btn-submit:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(13, 110, 253, 0.3);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container pt-5 pb-5">
+        <div class="row justify-content-center" id="s01">
+            <div class="col-md-8 col-lg-6 p-0">
+                
+                <div class="display-6 text-center form-header py-3">飲料產品建檔</div>
+                
+                <div class="form-container">
+                    <form id="drinkForm" novalidate>
+                        
+                        <div class="mb-4 form-check form-switch">
+                            <input type="checkbox" name="pstatus" id="pstatus" class="form-check-input" checked>
+                            <label for="pstatus" class="form-check-label ms-2" id="pstatus_text">目前狀態：上架</label>
+                        </div>
+
+                        <div class="mb-4 form-floating">
+                            <input type="text" class="form-control form-control-lg" name="pname" id="pname" placeholder="請輸入產品名稱" required>
+                            <label for="pname" class="form-label">產品名稱(字數1-6)</label>
+                            <div class="valid-feedback">產品名稱符合規定。</div>
+                            <div class="invalid-feedback">產品名稱不符合規定。</div>
+                        </div>
+                        
+                        <div class="mb-4">
+                            <label for="pnum" class="form-label">數量(1-10)</label>
+                            <input type="number" class="form-control form-control-lg" min="1" max="10" id="pnum" placeholder="請輸入數量" required>
+                            <div class="valid-feedback">數量符合規定。</div>
+                            <div class="invalid-feedback">數量不符合規定。</div>
+                        </div>
+                        
+                        <div class="mb-4">
+                            <label for="pstandard" class="form-label">產品規格</label>
+                            <input type="text" class="form-control form-control-lg" id="pstandard" list="standard_list" placeholder="請選擇或輸入規格">
+                            <datalist id="standard_list">
+                                <option value="全糖"></option>
+                                <option value="半糖"></option>
+                                <option value="微糖"></option>
+                                <option value="無糖"></option>
+                            </datalist>
+                        </div>
+
+                        <div class="mb-4">
+                            <label for="psize" class="form-label">產品尺寸</label>
+                            <select class="form-select form-select-lg" id="psize">
+                                <option value="大杯">大杯 (L)</option>
+                                <option value="中杯">中杯 (M)</option>
+                            </select>
+                        </div>
+                        
+                        <div class="mb-4">
+                            <div class="form-label fw-900">供應方式：請選擇一項</div>
+                            <div id="supply_group" class="is-invalid p-2 border rounded bg-light">
+                                <div class="form-check form-check-inline">
+                                    <input type="radio" class="form-check-input supply_item" name="supply" value="冷飲">
+                                    <label class="form-check-label">冷飲</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input type="radio" class="form-check-input supply_item" name="supply" value="熱飲">
+                                    <label class="form-check-label">熱飲</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input type="radio" class="form-check-input supply_item" name="supply" value="冷熱皆可">
+                                    <label class="form-check-label">冷熱皆可</label>
+                                </div>
+                            </div>
+                            <div class="valid-feedback">已選擇供應方式</div>
+                            <div class="invalid-feedback">未選擇供應方式</div>
+                        </div>
+
+                        <div class="mb-4">
+                            <div class="form-label fw-900">可加配料：至少要加一個</div>
+                            <div id="topping_group" class="is-invalid p-2 border rounded bg-light">
+                                <div class="form-check">
+                                    <input type="checkbox" class="form-check-input topping_item" value="珍珠">
+                                    <label class="form-check-label">珍珠</label>
+                                </div>
+                                <div class="form-check">
+                                    <input type="checkbox" class="form-check-input topping_item" value="椰果">
+                                    <label class="form-check-label">椰果</label>
+                                </div>
+                                <div class="form-check">
+                                    <input type="checkbox" class="form-check-input topping_item" value="蒟蒻">
+                                    <label class="form-check-label">蒟蒻</label>
+                                </div>
+                                <div class="form-check">
+                                    <input type="checkbox" class="form-check-input topping_item" value="布丁">
+                                    <label class="form-check-label">布丁</label>
+                                </div>
+                            </div>
+                            <div class="valid-feedback">配料已選擇</div>
+                            <div class="invalid-feedback">至少要加一個配料</div>
+                        </div>
+
+                        <button type="button" id="submitBtn" class="btn btn-primary btn-lg w-100 btn-submit mt-3">建立產品檔案</button>
+                    </form>
+                </div>
+
+                <div id="result_output" class="mt-4 p-4 bg-white rounded shadow-sm d-none">
+                    </div>
+
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    
+    <script>
+        $(function() {
+            // 全域驗證旗標
+            let flag_topping = false;
+            let flag_supply = false;
+
+            // 1. 監聽 #pstatus (上/下架切換)
+            $("#pstatus").on("change", function(){
+                let pstatus = $(this).prop("checked");
+                if(pstatus){
+                    $("#pstatus_text").text("目前狀態：上架");
+                }else{
+                    $("#pstatus_text").text("目前狀態：下架");
+                }
+            });
+
+            // 2. 監聽 .supply_item (供應方式驗證)
+            $(".supply_item").on("change", function () {
+                let count = $(".supply_item:checked").length;
+                if (count > 0) {
+                    $("#supply_group").removeClass("is-invalid").addClass("is-valid");
+                    flag_supply = true;
+                } else {
+                    $("#supply_group").removeClass("is-valid").addClass("is-invalid");
+                    flag_supply = false;
+                }
+            });
+
+            // 3. 監聽 .topping_item (配料驗證)
+            $(".topping_item").on("change", function(){
+                let count = $(".topping_item:checked").length;
+                if(count > 0){
+                    $("#topping_group").removeClass("is-invalid").addClass("is-valid");
+                    flag_topping = true;
+                }else{
+                    $("#topping_group").removeClass("is-valid").addClass("is-invalid");
+                    flag_topping = false;
+                }
+            });
+
+            // 4. 按鈕送出事件：收集資料與渲染
+            $("#submitBtn").on("click", function() {
+                // 觸發一次狀態確認
+                $(".supply_item:first").trigger("change");
+                $(".topping_item:first").trigger("change");
+
+                // 基礎驗證（產品名稱長度與數量規範）
+                let pname = $("#pname").val();
+                let pnum = parseInt($("#pnum").val());
+                
+                if (pname.length >= 1 && pname.length <= 6) {
+                    $("#pname").removeClass("is-invalid").addClass("is-valid");
+                } else {
+                    $("#pname").removeClass("is-valid").addClass("is-invalid");
+                }
+
+                if (pnum >= 1 && pnum <= 10) {
+                    $("#pnum").removeClass("is-invalid").addClass("is-valid");
+                } else {
+                    $("#pnum").removeClass("is-valid").addClass("is-invalid");
+                }
+
+                // 確定全部表單驗證都通過
+                if ($(".is-invalid").length === 0) {
+                    
+                    // 收集上架狀態文字
+                    let pstatus = $("#pstatus").prop("checked") ? "上架" : "下架";
+
+                    // 收集供應方式
+                    let supplyArray = [];
+                    $(".supply_item:checked").each(function () {
+                        supplyArray.push($(this).val());
+                    });
+
+                    // 收集可加配料
+                    let toppingArray = [];
+                    $(".topping_item:checked").each(function(){
+                        toppingArray.push($(this).val());
+                    });
+
+                    // 組合要顯示的 HTML 字串
+                    let strHTML = `
+                        <h4 class="text-success border-bottom pb-2 mb-3">🎉 產品建立成功明細</h4>
+                        <p><strong>產品名稱：</strong>${$("#pname").val()}</p>
+                        <p><strong>產品數量：</strong>${$("#pnum").val()}</p>
+                        <p><strong>產品規格：</strong>${$("#pstandard").val() || '無'}</p>
+                        <p><strong>產品尺寸：</strong>${$("#psize").val()}</p>
+                        <p><strong>供應方式：</strong>${supplyArray.join(", ")}</p>
+                        <p><strong>目前狀態：</strong>${pstatus}</p>
+                        <p><strong>選取配料：</strong>${toppingArray.join(", ") || '無'}</p>
+                    `;
+
+                    // 渲染並顯示結果區塊
+                    $("#result_output").html(strHTML).removeClass("d-none");
+                } else {
+                    alert("請檢查表單欄位是否填寫正確！");
+                }
+            });
+        });
+    </script>
+</body>
+</html>
