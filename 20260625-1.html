@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Uber Eats 風格 - 手搖飲點餐系統</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/my.css">
+    <style>
+        /* 為了完美複製 Uber Eats 質感，我們只加三個最簡單的顏色變數 */
+        .ubereats-green { background-color: #06C167 !important; color: white !important; } /* Uber主色綠 */
+        .ubereats-dark { background-color: #142328 !important; color: white !important; }  /* Uber深色背景 */
+        .text-ubereats { color: #06C167 !important; }
+    </style>
+</head>
+<body class="bg-light text-dark">
+
+    <div class="ubereats-dark py-3 text-center mb-4 shadow-sm">
+        <h1 class="fw-bold m-0 fs-3">🟢 Uber <span class="text-ubereats">Eats</span> 飲料線上點餐</h1>
+    </div>
+
+    <div class="container pb-5">
+        
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="card border-0 rounded-4 shadow-sm p-4 bg-white">
+                    <h2 class="h4 fw-bold mb-4 border-bottom pb-2">🧋 填寫飲品客製單</h2>
+                    
+                    <div class="mb-4 form-floating">
+                        <input type="text" class="form-control form-control-lg rounded-3" id="pname" placeholder=" ">
+                        <label for="pname" class="form-label text-muted">我想喝什麼？(請填寫 1-6 字品名)</label>
+                        <div class="valid-feedback">太棒了，這杯飲品名稱符合規定！</div>
+                        <div class="invalid-feedback">名稱長度必須在 1-6 個字之間喔。</div>
+                    </div>
+
+                    <div class="mb-4 form-floating">
+                        <input type="number" class="form-control form-control-lg rounded-3" value="1" min="1" max="10" id="pnum" placeholder=" ">
+                        <label for="pnum" class="form-label text-muted">需要幾杯？(每人限購 1-10 杯)</label>
+                        <div class="valid-feedback">數量符合限購規定。</div>
+                        <div class="invalid-feedback">數量不可以少於 1 杯或超過 10 杯喔！</div>
+                    </div>
+
+                    <div class="mb-4">
+                        <label for="pstandard" class="form-label fw-bold text-secondary">🧊 客製化冰塊甜度</label>
+                        <input type="text" class="form-control form-control-lg rounded-3" id="pstandard" list="datalistoption" placeholder="例：去冰微糖 / 正常冰全糖 (1-6字)">
+                        <datalist id="datalistoption">
+                            <option value="去冰無糖"></option>
+                            <option value="微冰微糖"></option>
+                            <option value="少冰少糖"></option>
+                            <option value="正常冰全糖"></option>
+                        </datalist>
+                        <div class="valid-feedback">客製化設定成功。</div>
+                        <div class="invalid-feedback">請填寫規格，字數需在 1-6 字內。</div>
+                    </div>
+
+                    <div class="mb-4">
+                        <label for="pcapacity" class="form-label fw-bold text-secondary">📏 選擇杯裝份量</label>
+                        <select name="" id="pcapacity" class="form-select form-select-lg rounded-3 is-invalid">
+                            <option value="" disabled selected class="text-center fw-bold">--- 請點擊選擇容量 ---</option>
+                            <option value="大杯 (L杯 - 約700cc)">大杯 (L杯 - 約700cc)</option>
+                            <option value="中杯 (M杯 - 約500cc)">中杯 (M杯 - 約500cc)</option>
+                            <option value="重量杯 (XL杯 - 約1000cc)">重量杯 (XL杯 - 約1000cc)</option>
+                            <option value="分享瓶 (2000cc以上)">分享瓶 (2000cc以上)</option>
+                        </select>
+                        <div class="valid-feedback">容量已成功選擇。</div>
+                        <div class="invalid-feedback">此欄位為必填，請選擇一個份量！</div>
+                    </div>
+
+                    <div class="text-end mt-2">
+                        <button class="btn btn-light border rounded-pill px-4 me-2 fw-bold" id="cancel_btn">重新填寫</button>
+                        <button class="btn ubereats-green rounded-pill px-4 fw-bold shadow-sm" id="ok_btn" disabled>加入購物車</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mt-5 justify-content-center">
+            <div class="col-md-6">
+                <div class="card border-0 rounded-4 shadow-sm overflow-hidden">
+                    <div class="ubereats-green py-3 text-center fw-bold fs-5">
+                        📋 您的 Uber Eats 訂單明細確認
+                    </div>
+                    <div class="card-body bg-white p-4">
+                        <div id="showmessage">
+                            <p class="text-center text-muted m-0 py-3 fs-6">尚未點餐，請完成上方表單並點擊「加入購物車」。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="js/jquery-4.0.0.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script>
+        // 設定四個欄位的驗證旗標
+        let flag_pname = false;
+        let flag_pnum = true;        // 數量預設是 1 (符合規定)
+        let flag_pstandard = false;  // 規格預設沒填
+        let flag_pcapacity = false;  // 容量預設沒選
+
+        // 檢查按鈕狀態
+        function checkConfirmButton() {
+            if (flag_pname && flag_pnum && flag_pstandard && flag_pcapacity) {
+                $("#ok_btn").removeAttr("disabled");
+            } else {
+                $("#ok_btn").attr("disabled", "disabled");
+            }
+        }
+
+        $(function () {
+            
+            // 1. 監聽#pname (產品名稱)
+            $("#pname").on("input", function () {
+                let pname = $(this).val().trim();
+                if (pname.length >= 1 && pname.length <= 6) {
+                    $(this).removeClass("is-invalid").addClass("is-valid");
+                    flag_pname = true;
+                } else {
+                    $(this).removeClass("is-valid").addClass("is-invalid");
+                    flag_pname = false;
+                }
+                checkConfirmButton();
+            });
+
+            // 2. 監聽#pnum (數量)
+            $("#pnum").on("input", function () {
+                let pnum = Number($(this).val());
+                if (pnum >= 1 && pnum <= 10) {
+                    $(this).removeClass("is-invalid").addClass("is-valid");
+                    flag_pnum = true;
+                } else {
+                    $(this).removeClass("is-valid").addClass("is-invalid");
+                    flag_pnum = false;
+                }
+                checkConfirmButton();
+            });
+
+            // 3. 監聽#pstandard (產品規格)
+            $("#pstandard").on("input", function () {
+                let pstandard = $(this).val().trim();
+                if (pstandard.length >= 1 && pstandard.length <= 6) {
+                    $(this).removeClass("is-invalid").addClass("is-valid");
+                    flag_pstandard = true;
+                } else {
+                    $(this).removeClass("is-valid").addClass("is-invalid");
+                    flag_pstandard = false;
+                }
+                checkConfirmButton();
+            });
+
+            // 4. 監聽#pcapacity (容量)
+            $("#pcapacity").on("change", function () {
+                let pcapacity = $(this).val();
+                if (pcapacity != "" && pcapacity != null) {
+                    $(this).removeClass("is-invalid").addClass("is-valid");
+                    flag_pcapacity = true;
+                } else {
+                    $(this).removeClass("is-valid").addClass("is-invalid");
+                    flag_pcapacity = false;
+                }
+                checkConfirmButton();
+            });
+
+            // 5. 點擊確認按鈕（產生成精美的外送收據明細）
+            $("#ok_btn").on("click", function () {
+                let name = $("#pname").val().trim();
+                let num = $("#pnum").val();
+                let standard = $("#pstandard").val().trim();
+                let capacity = $("#pcapacity").val();
+
+                // 使用全新的精緻清單排版，看起來就像外送 App 內的購物車結帳明細
+                let messageHtml = `
+                    <div class="p-2">
+                        <div class="d-flex justify-content-between align-items-center mb-3">
+                            <span class="fs-4 fw-bold text-dark">🛒 購物車品項</span>
+                            <span class="badge bg-success rounded-pill px-3 py-2">準備中</span>
+                        </div>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item d-flex justify-content-between py-3 fs-5">
+                                <span><strong>飲品名稱：</strong> ${name}</span>
+                                <span class="text-ubereats fw-bold">x ${num} 杯</span>
+                            </li>
+                            <li class="list-group-item py-3 text-muted">
+                                <div class="mb-1"><strong>🍬 客製化調整：</strong> ${standard}</div>
+                                <div><strong>🥤 杯裝份量：</strong> ${capacity}</div>
+                            </li>
+                        </ul>
+                        <div class="mt-4 text-center text-muted small">
+                            感謝您使用 Uber Eats 點餐，祝您用餐愉快！
+                        </div>
+                    </div>
+                `;
+                $("#showmessage").html(messageHtml);
+            });
+
+            // 6. 取消按鈕 (重設表單)
+            $("#cancel_btn").on("click", function () {
+                $("#pname, #pstandard, #pcapacity").val("").removeClass("is-valid").addClass("is-invalid");
+                $("#pnum").val("1").removeClass("is-invalid").addClass("is-valid");
+                // 恢復為預設未點餐文字
+                $("#showmessage").html('<p class="text-center text-muted m-0 py-3 fs-6">尚未點餐，請完成上方表單並點擊「加入購物車」。</p>');
+                flag_pname = false;
+                flag_pnum = true;
+                flag_pstandard = false;
+                flag_pcapacity = false;
+                checkConfirmButton();
+            });
+
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>產品庫存管理系統</title>
+
+<link rel="stylesheet" href="css/all.min.css">
+<link rel="stylesheet" href="css/bootstrap.min.css">
+
+<style>
+
+:root{
+
+--primary-color:#8B7CF6;
+--primary-dark:#6F5CF2;
+
+--secondary-color:#EAE6FF;
+--secondary-dark:#D8D1FF;
+
+--accent-color:#A393FF;
+
+--background-color:#F7F5FF;
+--surface-color:#FFFFFF;
+
+--text-primary:#2D2D2D;
+--text-secondary:#666;
+
+--border-color:#E5E1FF;
+
+}
+
+body{
+    background:var(--background-color);
+    color:var(--text-primary);
+    padding-top:30px;
+}
+
+.container{
+    max-width:1200px;
+}
+
+.page-title{
+    color:var(--primary-dark);
+    font-weight:800;
+    margin-bottom:30px;
+    letter-spacing:3px;
+}
+
+.table{
+    background:white;
+    border-radius:16px;
+    overflow:hidden;
+    box-shadow:0 10px 30px rgba(111,92,242,.12);
+}
+
+.erp-header{
+    background:linear-gradient(
+        135deg,
+        var(--primary-color),
+        var(--primary-dark)
+    );
+    color:white;
+}
+
+.erp-header th{
+    padding:16px;
+    border:none;
+}
+
+tbody td{
+    padding:14px;
+    vertical-align:middle;
+}
+
+tbody tr{
+    transition:.25s;
+}
+
+tbody tr:hover{
+    background:#F5F2FF !important;
+    transform:scale(1.01);
+}
+
+.price{
+    text-align:right;
+    font-weight:700;
+    color:var(--primary-dark);
+}
+
+.qty{
+    text-align:center;
+    font-weight:600;
+}
+
+.tag{
+    background:#ECE8FF;
+    color:#6F5CF2;
+    padding:5px 12px;
+    border-radius:20px;
+    font-size:.85rem;
+    font-weight:600;
+}
+
+caption{
+    padding:10px;
+    color:var(--text-secondary);
+}
+
+@media screen and (max-width:768px){
+
+.table-rwd thead,
+caption{
+    display:none;
+}
+
+.table-rwd tbody tr{
+    display:block;
+    margin:15px;
+    border:2px solid var(--secondary-dark);
+    border-radius:12px;
+    background:white;
+}
+
+.table-rwd tbody tr td{
+    display:block;
+    overflow:hidden;
+}
+
+.table-rwd tbody tr td::before{
+    content:attr(data-th)" : ";
+    font-size:16px;
+    font-weight:bold;
+    color:var(--primary-dark);
+    display:block;
+    float:left;
+    width:35%;
+    text-align:right;
+    padding-right:1em;
+}
+
+.table-rwd tbody tr td span{
+    display:block;
+    float:left;
+    width:65%;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="display-5 text-center page-title">
+產品庫存管理系統
+</div>
+
+<table class="table table-bordered table-hover table-rwd">
+
+<caption>
+表1.2 手搖飲產品庫存列表
+</caption>
+
+<thead class="erp-header">
+
+<tr>
+<th>產品編號</th>
+<th>產品名稱</th>
+<th>產品價格</th>
+<th>產品數量</th>
+<th>產品備註</th>
+</tr>
+
+</thead>
+
+<tbody>
+
+<tr>
+<td data-th="產品編號"><span>D001</span></td>
+<td data-th="產品名稱"><span>珍珠奶茶</span></td>
+<td class="price" data-th="產品價格"><span>$65</span></td>
+<td class="qty" data-th="產品數量"><span>120</span></td>
+<td data-th="產品備註"><span class="tag">熱銷商品</span></td>
+</tr>
+
+<tr>
+<td data-th="產品編號"><span>D002</span></td>
+<td data-th="產品名稱"><span>波霸奶茶</span></td>
+<td class="price" data-th="產品價格"><span>$70</span></td>
+<td class="qty" data-th="產品數量"><span>85</span></td>
+<td data-th="產品備註"><span class="tag">人氣推薦</span></td>
+</tr>
+
+<tr>
+<td data-th="產品編號"><span>D003</span></td>
+<td data-th="產品名稱"><span>四季春青茶</span></td>
+<td class="price" data-th="產品價格"><span>$35</span></td>
+<td class="qty" data-th="產品數量"><span>150</span></td>
+<td data-th="產品備註"><span class="tag">無糖推薦</span></td>
+</tr>
+
+<tr>
+<td data-th="產品編號"><span>D004</span></td>
+<td data-th="產品名稱"><span>烏龍綠茶</span></td>
+<td class="price" data-th="產品價格"><span>$40</span></td>
+<td class="qty" data-th="產品數量"><span>90</span></td>
+<td data-th="產品備註"><span class="tag">經典茶飲</span></td>
+</tr>
+
+<tr>
+<td data-th="產品編號"><span>D005</span></td>
+<td data-th="產品名稱"><span>冬瓜檸檬</span></td>
+<td class="price" data-th="產品價格"><span>$55</span></td>
+<td class="qty" data-th="產品數量"><span>70</span></td>
+<td data-th="產品備註"><span class="tag">夏季限定</span></td>
+</tr>
+
+<tr>
+<td data-th="產品編號"><span>D006</span></td>
+<td data-th="產品名稱"><span>百香雙Q</span></td>
+<td class="price" data-th="產品價格"><span>$75</span></td>
+<td class="qty" data-th="產品數量"><span>50</span></td>
+<td data-th="產品備註"><span class="tag">新品上市</span></td>
+</tr>
+
+<tr>
+<td data-th="產品編號"><span>D007</span></td>
+<td data-th="產品名稱"><span>芋香鮮奶</span></td>
+<td class="price" data-th="產品價格"><span>$80</span></td>
+<td class="qty" data-th="產品數量"><span>45</span></td>
+<td data-th="產品備註"><span class="tag">高單價</span></td>
+</tr>
+
+<tr>
+<td data-th="產品編號"><span>D008</span></td>
+<td data-th="產品名稱"><span>黑糖鮮奶</span></td>
+<td class="price" data-th="產品價格"><span>$85</span></td>
+<td class="qty" data-th="產品數量"><span>60</span></td>
+<td data-th="產品備註"><span class="tag">人氣商品</span></td>
+</tr>
+
+<tr>
+<td data-th="產品編號"><span>D009</span></td>
+<td data-th="產品名稱"><span>蜂蜜綠茶</span></td>
+<td class="price" data-th="產品價格"><span>$50</span></td>
+<td class="qty" data-th="產品數量"><span>110</span></td>
+<td data-th="產品備註"><span class="tag">推薦飲品</span></td>
+</tr>
+
+<tr>
+<td data-th="產品編號"><span>D010</span></td>
+<td data-th="產品名稱"><span>紅茶拿鐵</span></td>
+<td class="price" data-th="產品價格"><span>$75</span></td>
+<td class="qty" data-th="產品數量"><span>80</span></td>
+<td data-th="產品備註"><span class="tag">招牌商品</span></td>
+</tr>
+
+</tbody>
+
+</table>
+
+</div>
+
+<script src="js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>

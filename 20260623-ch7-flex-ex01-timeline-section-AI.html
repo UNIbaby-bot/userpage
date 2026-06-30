@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Party Planner 派對活動企劃</title>
+
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/all.min.css">
+
+    <style>
+        :root {
+            --main-color: #66d1c1;
+            --dark-color: #3ca89a;
+            --light-color: #f7fffd;
+        }
+
+        body {
+            background-color: var(--light-color);
+        }
+
+        .hero {
+            background: linear-gradient(rgba(102, 209, 193, .85),
+                    rgba(60, 168, 154, .85)),
+                url("images/party01.jpg");
+            background-position: center;
+            background-size: cover;
+            height: 70vh;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            font-weight: 900;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+        }
+
+        .btn-main {
+            background-color: white;
+            color: var(--dark-color);
+            border-radius: 50px;
+            padding: 12px 30px;
+            font-weight: bold;
+            transition: .4s;
+        }
+
+        .btn-main:hover {
+            background-color: var(--dark-color);
+            color: white;
+        }
+
+        .section-title {
+            color: var(--dark-color);
+            font-weight: 900;
+        }
+
+        /* Timeline */
+
+        .timeline-section {
+            position: relative;
+        }
+
+        .timeline-section::before {
+            position: absolute;
+            content: "";
+            top: 0;
+            bottom: 0;
+            width: 5px;
+            background-color: var(--main-color);
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .timeline-section-pointer {
+            position: relative;
+            margin-bottom: 80px;
+        }
+
+        .timeline-section-pointer::before {
+            position: absolute;
+            content: "";
+            width: 24px;
+            height: 24px;
+            background-color: var(--main-color);
+            border: 4px solid white;
+            border-radius: 50%;
+            left: 50%;
+            top: 20px;
+            transform: translateX(-50%);
+            z-index: 10;
+            box-shadow: 0 0 10px rgba(0, 0, 0, .2);
+        }
+
+        .imgbox {
+            height: 320px;
+            border-radius: 20px;
+            overflow: hidden;
+            position: relative;
+            background-position: center;
+            background-size: cover;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, .15);
+        }
+
+        .overlay {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, .55);
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            opacity: 0;
+            transition: .4s;
+        }
+
+        .imgbox:hover .overlay {
+            opacity: 1;
+        }
+
+        .overlay a {
+            text-decoration: none;
+            color: white;
+            border: 2px solid white;
+            padding: 12px 25px;
+            border-radius: 50px;
+            font-weight: bold;
+        }
+
+        .textbox {
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, .1);
+        }
+
+        .plan-tag {
+            display: inline-block;
+            background-color: var(--main-color);
+            color: white;
+            padding: 6px 16px;
+            border-radius: 30px;
+            margin-bottom: 10px;
+        }
+
+        .price {
+            color: #ff6b6b;
+            font-size: 2rem;
+            font-weight: 900;
+        }
+
+        .btn-book {
+            background-color: var(--main-color);
+            color: white;
+        }
+
+        .btn-book:hover {
+            background-color: var(--dark-color);
+            color: white;
+        }
+
+        .cta-box {
+            background: white;
+            border-radius: 30px;
+            padding: 60px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, .1);
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            color: var(--main-color);
+        }
+
+        @media(max-width:768px) {
+
+            .timeline-section::before,
+            .timeline-section-pointer::before {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <!-- Hero -->
+
+    <section class="hero">
+
+        <div class="container">
+
+            <h1>🎉 Party Planner</h1>
+
+            <p class="my-4">
+                生日派對｜求婚驚喜｜企業活動｜抓周派對｜婚禮佈置
+            </p>
+
+            <a href="#" class="btn btn-main btn-lg">
+                立即預約規劃
+            </a>
+
+        </div>
+
+    </section>
+
+    <!-- 優勢 -->
+
+    <section class="container py-5">
+
+        <div class="row text-center">
+
+            <div class="col-md-4 mb-4">
+                <i class="fa-solid fa-cake-candles feature-icon"></i>
+                <h4 class="mt-3">500+活動經驗</h4>
+                <p>打造各類型派對與活動，經驗豐富。</p>
+            </div>
+
+            <div class="col-md-4 mb-4">
+                <i class="fa-solid fa-camera-retro feature-icon"></i>
+                <h4 class="mt-3">專業攝影團隊</h4>
+                <p>完整紀錄每個感動與歡樂瞬間。</p>
+            </div>
+
+            <div class="col-md-4 mb-4">
+                <i class="fa-solid fa-heart feature-icon"></i>
+                <h4 class="mt-3">客製化服務</h4>
+                <p>依照需求量身打造專屬活動內容。</p>
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- Timeline -->
+
+    <div class="container py-5">
+
+        <h2 class="display-3 text-center section-title mb-5">
+            派對企劃方案
+        </h2>
+
+        <div class="timeline-section">
+
+            <!-- 1 -->
+
+            <div class="row align-items-center timeline-section-pointer">
+
+                <div class="col-md-6 mb-4">
+
+                    <div class="imgbox"
+                        style="background-image:url(images/party01.jpg);">
+
+                        <div class="overlay">
+                            <a href="#">查看更多照片</a>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="col-md-6">
+
+                    <div class="textbox">
+
+                        <div class="plan-tag">熱門方案</div>
+
+                        <h2>🎂 生日派對企劃</h2>
+
+                        <p>
+                            提供主題氣球佈置、拍照背板、甜點桌設計與現場互動遊戲，
+                            打造專屬於壽星的夢幻生日派對。
+                        </p>
+
+                        <ul class="list-group mb-3">
+                            <li class="list-group-item">主題氣球佈置</li>
+                            <li class="list-group-item">拍照打卡區</li>
+                            <li class="list-group-item">專業攝影紀錄</li>
+                        </ul>
+
+                        <div class="price mb-3">
+                            NT$8,800 起
+                        </div>
+
+                        <button class="btn btn-book">
+                            立即下訂
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- 2 -->
+
+            <div class="row align-items-center flex-xl-row-reverse timeline-section-pointer">
+
+                <div class="col-md-6 mb-4">
+
+                    <div class="imgbox"
+                        style="background-image:url(images/party02.jpg);">
+
+                        <div class="overlay">
+                            <a href="#">查看更多照片</a>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="col-md-6">
+
+                    <div class="textbox">
+
+                        <div class="plan-tag">企業首選</div>
+
+                        <h2>🏢 企業尾牙活動</h2>
+
+                        <p>
+                            整合主持人、舞台燈光音響、抽獎活動與企業形象佈置，
+                            提升員工凝聚力與品牌形象。
+                        </p>
+
+                        <ul class="list-group mb-3">
+                            <li class="list-group-item">舞台設計</li>
+                            <li class="list-group-item">主持與表演安排</li>
+                            <li class="list-group-item">抽獎活動規劃</li>
+                        </ul>
+
+                        <div class="price mb-3">
+                            NT$25,800 起
+                        </div>
+
+                        <button class="btn btn-book">
+                            立即下訂
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- 3 -->
+
+            <div class="row align-items-center timeline-section-pointer">
+
+                <div class="col-md-6 mb-4">
+
+                    <div class="imgbox"
+                        style="background-image:url(images/party03.jpg);">
+
+                        <div class="overlay">
+                            <a href="#">查看更多照片</a>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="col-md-6">
+
+                    <div class="textbox">
+
+                        <div class="plan-tag">浪漫推薦</div>
+
+                        <h2>💍 求婚驚喜企劃</h2>
+
+                        <p>
+                            專人協助規劃求婚橋段、花藝佈置、
+                            現場燈光與攝影團隊，
+                            為人生重要時刻留下感動回憶。
+                        </p>
+
+                        <ul class="list-group mb-3">
+                            <li class="list-group-item">花藝佈置</li>
+                            <li class="list-group-item">驚喜影片播放</li>
+                            <li class="list-group-item">現場攝影紀錄</li>
+                        </ul>
+
+                        <div class="price mb-3">
+                            NT$15,800 起
+                        </div>
+
+                        <button class="btn btn-book">
+                            立即下訂
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- 4 -->
+
+            <div class="row align-items-center flex-xl-row-reverse timeline-section-pointer">
+
+                <div class="col-md-6 mb-4">
+
+                    <div class="imgbox"
+                        style="background-image:url(images/party04.jpg);">
+
+                        <div class="overlay">
+                            <a href="#">查看更多照片</a>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="col-md-6">
+
+                    <div class="textbox">
+
+                        <div class="plan-tag">VIP專屬</div>
+
+                        <h2>✨ 客製派對規劃</h2>
+
+                        <p>
+                            品牌發表會、私人聚會、抓周活動、
+                            各類主題派對等高端客製化規劃，
+                            提供一站式完整服務。
+                        </p>
+
+                        <ul class="list-group mb-3">
+                            <li class="list-group-item">專屬企劃顧問</li>
+                            <li class="list-group-item">場地規劃</li>
+                            <li class="list-group-item">品牌客製設計</li>
+                        </ul>
+
+                        <div class="price mb-3">
+                            NT$30,000 起
+                        </div>
+
+                        <button class="btn btn-book">
+                            立即下訂
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- CTA -->
+
+    <section class="container my-5">
+
+        <div class="cta-box text-center">
+
+            <h2 class="fw-bold mb-3">
+                讓您的派對成為最美好的回憶
+            </h2>
+
+            <p class="lead mb-4">
+                超過 500 場活動規劃經驗，專業團隊全程服務
+            </p>
+
+            <a href="#" class="btn btn-lg btn-book px-5">
+                立即預約諮詢
+            </a>
+
+        </div>
+
+    </section>
+
+</body>
+
+</html>
