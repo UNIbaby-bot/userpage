@@ -4,322 +4,323 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>個人簡歷</title>
+    <title>Eunice | 個人簡歷</title>
     <link rel="stylesheet" href="css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
 
     <style>
         :root {
             /* ========================================
-   Resume Portfolio Theme
-   Morandi Green Developer Edition
-   ======================================== */
+               重塑：蒂芬妮綠 & 粉嫩 療癒配色
+               ======================================== */
+            --primary-color: #81E6D9;       /* 核心：蒂芬妮綠 */
+            --primary-dark: #319795;        /* 蒂芬妮深綠 (文字與按鈕用) */
+            --primary-light: #E6FFFA;       /* 蒂芬妮淺綠 */
+            
+            --accent-pink: #FFF5F5;         /* 粉嫩粉背景 */
+            --accent-pink-dark: #FEB2B2;    /* 點綴粉色 */
 
-            /* 主色 - 鼠尾草綠 */
-            --primary-color: #7FA68C;
+            /* 背景與區塊 */
+            --background-color: #FAFFFF;
+            --section-background: #F0FAF7;
+            --surface-color: #FFFFFF;       /* 卡片底色：純白 */
 
-            /* 主色深色 */
-            --primary-dark: #5F8570;
+            /* 文字顏色 */
+            --text-primary: #2D3748;        /* 舒適的深灰，比純黑更柔和 */
+            --text-secondary: #4A5568;      /* 次要文字 */
+            --heading-color: #234E52;       /* 標題專用：深森林綠 */
 
-            /* 主色淺色 */
-            --primary-light: #DCE8E0;
-
-            /* 輔色 - 霧灰綠 */
-            --secondary-color: #A8BDB3;
-
-            /* 輔色深色 */
-            --secondary-dark: #8CA297;
-
-            /* 強調色 - 尤加利綠 */
-            --accent-color: #6F9A8D;
-
-            /* ========================================
-   Background
-   ======================================== */
-
-            /* 網頁背景 */
-            --background-color: #F6F8F7;
-
-            /* 區塊背景 */
-            --section-background: #EEF3F0;
-
-            /* 卡片背景 */
-            --surface-color: #FFFFFF;
-
-            /* Hero背景 */
-            --hero-background: #E7F0EB;
-
-            /* ========================================
-   Text
-   ======================================== */
-
-            /* 主要文字 */
-            --text-primary: #1B1B1B;
-
-            /* 次要文字 */
-            --text-secondary: #5F6B65;
-
-            /* 淺色文字 */
-            --text-light: #7A8781;
-
-            /* 標題文字 */
-            --heading-color: #3D5A4B;
-
-            /* ========================================
-   Border
-   ======================================== */
-
-            /* 一般邊框 */
-            --border-color: #D8E2DC;
-
-            /* 強調邊框 */
-            --border-accent: #B9CEC2;
-
-            /* ========================================
-   Portfolio
-   ======================================== */
-
-            /* 技能標籤 */
-            --skill-tag-bg: #E3EEE8;
-
-            /* 技能標籤文字 */
-            --skill-tag-text: #4F7563;
-
-            /* 專案卡片Hover */
-            --project-hover: #F0F7F3;
-
-            /* 時間軸 */
-            --timeline-color: #A4C1B1;
-
-            /* ========================================
-   Button
-   ======================================== */
-
-            /* 主要按鈕 */
-            --button-primary: #7FA68C;
-
-            /* 主要按鈕Hover */
-            --button-primary-hover: #5F8570;
-
-            /* 次要按鈕 */
-            --button-secondary: #E3EEE8;
-
-            /* 次要按鈕Hover */
-            --button-secondary-hover: #D2E4DA;
-
-            /* ========================================
-   Status
-   ======================================== */
-
-            /* 成功 */
-            --success-color: #6EA77A;
-
-            /* 提示 */
-            --info-color: #89B7A7;
-
-            /* 警告 */
-            --warning-color: #D4B483;
-
-            /* 錯誤 */
-            --danger-color: #C58F8F;
-
-            /* ========================================
-   Shadow
-   ======================================== */
-
-            --shadow-light:
-                0 4px 12px rgba(127, 166, 140, .08);
-
-            --shadow-medium:
-                0 8px 24px rgba(127, 166, 140, .12);
-
-            --shadow-large:
-                0 12px 36px rgba(127, 166, 140, .16);
+            /* 陰影 */
+            --shadow-comfort: 0 10px 30px rgba(129, 230, 217, 0.15);
+            --shadow-hover: 0 15px 35px rgba(49, 151, 149, 0.25);
         }
 
+        /* 通用樣式優化 */
         body {
+            font-family: 'Noto Sans TC', sans-serif;
             background-color: var(--background-color);
+            color: var(--text-primary);
+            margin: 0;
+            overflow-x: hidden;
         }
 
+        /* ========================================
+           S01 歡迎區塊 (保留原本架構，加入RWD優化)
+           ======================================== */
         .s01 {
-            background-color: var(--info-color);
-            height: 100vh;
-            /* 裝置多高就多高 */
+            background: linear-gradient(135deg, var(--primary-light) 0%, var(--accent-pink) 100%);
+            min-height: 100vh;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 40px 20px;
         }
 
-        .s01 .box01 {
-            width: 200px;
-            height: 200px;
-            background-color: var(--border-accent);
+        /* 四個角落的裝飾方塊 (改用粉嫩與蒂芬妮綠半透明色，增添層次) */
+        .s01 .box01, .s01 .box02, .s01 .box03, .s01 .box04 {
+            width: 15vw;
+            height: 15vw;
+            max-width: 180px;
+            max-height: 180px;
             position: absolute;
-            /* 定位 上下左右 */
-            top: 0;
-            left: 0;
-
+            border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; /* 圓潤有機形狀 */
+            opacity: 0.6;
+            z-index: 1;
         }
+        .s01 .box01 { top: 4%; left: 4%; background-color: var(--primary-color); }
+        .s01 .box02 { bottom: 4%; left: 2%; background-color: var(--accent-pink-dark); }
+        .s01 .box03 { bottom: 2%; right: 4%; background-color: var(--primary-color); }
+        .s01 .box04 { top: 6%; right: 2%; background-color: var(--accent-pink-dark); }
 
-        .s01 .box02 {
-            width: 200px;
-            height: 200px;
-            background-color: var(--border-accent);
-            position: absolute;
-            left: 0;
-            bottom: 0;
-        }
-
-        .s01 .box03 {
-            width: 200px;
-            height: 200px;
-            background-color: var(--border-accent);
-            position: absolute;
-            right: 0;
-            bottom: 0;
-        }
-
-        .s01 .box04 {
-            width: 200px;
-            height: 200px;
-            background-color: var(--border-accent);
-            position: absolute;
-            top: 0;
-            right: 0;
-        }
-
+        /* 大背景主圖 */
         .s01 .userimg {
             position: absolute;
-            top: 100px;
-            left: 100px;
-            bottom: 100px;
-            right: 100px;
-            background-color: var(--danger-color);
-            background-image: url(images/thisisengineering-TXxiFuQLBKQ-unsplash.jpg);
+            top: 60px;
+            left: 60px;
+            bottom: 60px;
+            right: 60px;
+            background-image: linear-gradient(rgba(255,255,255,0.4), rgba(255,255,255,0.1)), url(images/thisisengineering-TXxiFuQLBKQ-unsplash.jpg);
             background-position: center center;
             background-size: cover;
-            border-radius: 15px;
-            box-shadow: var(--shadow-light);
+            border-radius: 24px;
+            box-shadow: var(--shadow-comfort);
+            z-index: 2;
         }
 
+        /* 主文字區改良：RWD 自動置中 */
         .usertext {
-            position: absolute;
-            top: 30%;
-            left: 15%;
-            right: 60%;
-        }
-
-        /* S02作品區 */
-        .s02{
-            padding: 80px 10%;
-            background-color: var(--accent-color);
+            position: relative;
+            z-index: 3;
+            background-color: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(10px);
+            padding: 40px;
+            border-radius: 20px;
+            border: 2px solid var(--primary-color);
+            box-shadow: var(--shadow-comfort);
+            max-width: 500px;
+            width: 100%;
             text-align: center;
         }
 
-        .s02 h2{
-            font-size: 36px;
+        @media (min-width: 768px) {
+            /* 桌機版維持你原本的左側偏好位置 */
+            .usertext {
+                position: absolute;
+                top: 30%;
+                left: 12%;
+                text-align: left;
+                width: 35%;
+            }
         }
 
-        .s02 .card{
-            display: inline-block ;
-            margin: 15px;
-            width: 240px;
-            background-color: var(--button-primary);
-            padding: 20px;
+        .usertext h1 {
+            color: var(--heading-color);
+            font-weight: 700;
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .usertext hr {
+            border-top: 3px solid var(--primary-color);
+            opacity: 1;
+            width: 60px;
+            margin: 15px 0;
+        }
+        @media (max-width: 767px) { .usertext hr { margin: 15px auto; } }
+
+        .usertext h2 {
+            color: var(--text-secondary);
+            font-size: 1.35rem;
+            font-weight: 500;
+            margin-bottom: 15px;
+        }
+
+        .usertext p {
+            color: var(--primary-dark);
+            font-style: italic;
+            font-weight: 500;
+            background: rgba(255, 245, 245, 0.7);
+            padding: 8px 15px;
+            border-radius: 30px;
+            display: inline-block;
+        }
+
+        /* ========================================
+           S02 作品集區塊 (使用 Bootstrap Grid 實現完美 RWD)
+           ======================================== */
+        .s02 {
+            padding: 100px 0;
+            background-color: var(--section-background);
+        }
+
+        .s02 h2 {
+            font-size: 2.25rem;
+            font-weight: 700;
+            color: var(--heading-color);
+            margin-bottom: 50px;
+            position: relative;
+            display: inline-block;
+        }
+
+        /* 標題底下的粉嫩蒂芬妮裝飾線 */
+        .s02 h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 6px;
+            background: linear-gradient(90deg, var(--primary-color), var(--accent-pink-dark));
+            border-radius: 3px;
+        }
+
+        /* 項目卡片美化 */
+        .s02 .card {
+            border: none;
+            background-color: var(--surface-color);
+            padding: 28px;
             text-align: left;
-            border-radius: 12px;
+            border-radius: 18px;
+            box-shadow: var(--shadow-comfort);
+            transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s ease;
+            height: 100%; /* 讓同排卡片等高 */
+            display: flex;
+            flex-direction: column;
+        }
+
+        .s02 .card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-hover);
+            background: linear-gradient(#fff, #fff) padding-box, 
+                        linear-gradient(135deg, var(--primary-color), var(--accent-pink-dark)) border-box;
+            border: 2px solid transparent;
         }
 
         .s02 .card h3 {
-            color: var(--text-primary)
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--heading-color);
             margin-top: 0;
-        }
-        
-        .s02 .card p{
-            line-height: 1.7;
-            color: var(--text-primary);
+            margin-bottom: 12px;
         }
 
+        .s02 .card p {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            color: var(--text-secondary);
+            flex-grow: 1; /* 自動撐開空間 */
+            margin-bottom: 20px;
+        }
+
+        /* 按鈕美化成漂亮的圓角蒂芬妮綠 */
+        .s02 .card a {
+            display: inline-block;
+            text-align: center;
+            background-color: var(--primary-color);
+            color: var(--heading-color) !important;
+            font-weight: 700;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 10px rgba(129, 230, 217, 0.2);
+        }
+
+        .s02 .card a:hover {
+            background-color: var(--primary-dark);
+            color: #ffffff !important;
+            box-shadow: 0 6px 15px rgba(49, 151, 149, 0.4);
+        }
     </style>
-
 </head>
 
 <body>
 
     <section class="s01">
-
         <div class="box01"></div>
         <div class="box02"></div>
         <div class="box03"></div>
         <div class="box04"></div>
+        
         <div class="userimg"></div>
+        
         <div class="usertext">
-
-            <h1>Eunice履歷</h1>
+            <h1>Eunice 履歷</h1>
             <hr>
-            <h2>應徵職務:軟體工程師</h2>
-            <p>座右銘:哈哈哈哈哈</p>
+            <h2>應徵職務：前端 / 軟體工程師</h2>
+            <p>✨ 保持熱情，用代碼創造溫暖體驗</p>
         </div>
-
     </section>
 
     <section class="s02">
+        <div class="container text-center">
+            <h2>我的作品</h2>
+            
+            <div class="row g-4 mt-2 justify-content-center">
+                
+                <div class="col-sm-6 col-md-4 col-lg-3">
+                    <div class="card">
+                        <h3>基礎切版練習</h3>
+                        <p>穩紮穩打的 HTML5 與 CSS3 語意化結構練習，以此建立清晰的網頁核心骨架。</p>
+                        <a href="20260527-1.html" target="_blank">查看作品 <i class="fas fa-arrow-right ms-1"></i></a>
+                    </div>
+                </div>
 
-        <h2>我的作品</h2>
+                <div class="col-sm-6 col-md-4 col-lg-3">
+                    <div class="card">
+                        <h3>健身房主題網站</h3>
+                        <p>結合精準的 CSS 排版結構，並引入 AI 輔助優化程式碼，呈現乾淨俐落的資訊版面。</p>
+                        <a href="20260528-AI.html" target="_blank">查看作品 <i class="fas fa-arrow-right ms-1"></i></a>
+                    </div>
+                </div>
 
-    <!-- 作品01 -->
-    <div class="card">
-    <h3>切版練習</h3>
-    <p>使用html Css練習切版</p>
-    <a href="20260527-1.html" target="_blank">查看作品</a>
-    </div>
+                <div class="col-sm-6 col-md-4 col-lg-3">
+                    <div class="card">
+                        <h3>RWD 健身房網站</h3>
+                        <p>升級響應式網頁設計（RWD），導入精緻 Icon 圖標系統，確保各大行動裝置完美體驗。</p>
+                        <a href="20260602-ai2.html" target="_blank">查看作品 <i class="fas fa-arrow-right ms-1"></i></a>
+                    </div>
+                </div>
 
-    <!-- 作品02 -->
-    <div class="card">
-    <h3>健身房網站</h3>
-    <p>使用html Css及AI優化</p>
-    <a href="20260528-AI.html" target="_blank">查看作品</a>
-    </div>
+                <div class="col-sm-6 col-md-4 col-lg-3">
+                    <div class="card">
+                        <h3>互動飲料訂購表單</h3>
+                        <p>精緻的 UI 表單控制元件設計，包含多種輸入欄位優化，大幅提高使用者互動意願。</p>
+                        <a href="CH11表單練習ai.html" target="_blank">查看作品 <i class="fas fa-arrow-right ms-1"></i></a>
+                    </div>
+                </div>
 
-    <!-- 作品03 -->
-    <div class="card">
-    <h3>RWD健身房網站</h3>
-    <p>使用html Css及新增Icon與AI優化</p>
-    <a href="20260602-ai2.html" target="_blank">查看作品</a>
-    </div>
+                <div class="col-sm-6 col-md-4 col-lg-3">
+                    <div class="card">
+                        <h3>餐飲外送點餐介面</h3>
+                        <p>致敬外送平台介面，精心規劃防呆欄位與簡潔版面，模擬真實世界的商務前端場景。</p>
+                        <a href="20260625-1.html" target="_blank">查看作品 <i class="fas fa-arrow-right ms-1"></i></a>
+                    </div>
+                </div>
+                
+                <div class="col-sm-6 col-md-4 col-lg-3">
+                    <div class="card">
+                        <h3>主題活動響應式網頁</h3>
+                        <p>運用 CSS Flexbox 打造高靈活度時間軸（Timeline）排版，搭配 AI 自動化排版微調。</p>
+                        <a href="20260623-ch7-flex-ex01-timeline-section-AI.html" target="_blank">查看作品 <i class="fas fa-arrow-right ms-1"></i></a>
+                    </div>
+                </div>
 
-        <!-- 作品04 -->
-    <div class="card">
-    <h3>飲料表單</h3>
-    <p>飲料表單</p>
-    <a href="CH11表單練習ai.html" target="_blank">查看作品</a>
-    </div>
+                <div class="col-sm-6 col-md-4 col-lg-3">
+                    <div class="card">
+                        <h3>企業級類 ERP 數據表格</h3>
+                        <p>專注於處理複雜表格的資料結構視覺化，經過 AI 效能與可讀性深度優化，專業感十足。</p>
+                        <a href="20260605-Tabla-AI.html" target="_blank">查看作品 <i class="fas fa-arrow-right ms-1"></i></a>
+                    </div>
+                </div>
 
-
-        <!-- 作品05 -->
-    <div class="card">
-    <h3>飲料表單</h3>
-    <p>類似UberEats</p>
-    <a href="20260625-1.html" target="_blank">查看作品</a>
-    </div>
-    
-      <!-- 作品06 -->
-    <div class="card">
-    <h3>活動網站</h3>
-    <p>timeline排版ai優化</p>
-    <a href="20260623-ch7-flex-ex01-timeline-section-AI.html" target="_blank">查看作品</a>
-    </div>
-
-          <!-- 作品07 -->
-    <div class="card">
-    <h3>類ERP表格</h3>
-    <p>ERP類表格ai優化</p>
-    <a href="20260605-Tabla-AI.html" target="_blank">查看作品</a>
-    </div>
-
-
-
-
-
-
-</section>
+            </div>
+        </div>
+    </section>
 
 </body>
-
 </html>
