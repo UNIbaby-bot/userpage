@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>切版練習</title>
+    <style>
+            /* 一開始這些顏色通常是問AI生成 配色好的 需要時從這呼叫 */
+            /* 變數寫好就可以直接改配色 不需要一個一個改 */
+            /* Sports Energy Theme */
+:root{
+    /* 主色 Primary */
+    --primary-color:#FF6B00;
+
+    /* 主色深色 Hover / Active */
+    --primary-dark:#CC5500;
+
+    /* 輔色 Secondary */
+    --secondary-color:#0066FF;
+
+    /* 輔色深色 */
+    --secondary-dark:#004FCC;
+
+    /* 強調色 Accent */
+    --accent-color:#00D084;
+
+    /* 頁面背景 */
+    --background-color:#F5F7FA;
+
+    /* 卡片背景 */
+    --surface-color:#FFFFFF;
+
+    /* 主要文字 */
+    --text-primary:#1A1A1A;
+
+    /* 次要文字 */
+    --text-secondary:#666666;
+
+    /* 邊框色 */
+    --border-color:#D9E2EC;
+}
+
+        *{
+            margin: 0;
+            padding: 0;
+            
+            /* 暴力間距預設歸零 設定之後會擠在一起 因為預設是5 很難算間距*/
+        }
+
+        nav{
+            background-color: var(--background-color)
+            text-align: center;
+            padding-top: 15px;
+            padding-bottom: 15px;
+            margin-top: 5px;
+            margin-bottom: 5px;
+        }
+
+        nav ul{
+            display: inline-block;
+        }
+
+        nav ul li{
+            float: left;
+            list-style-type: none;
+            /* 選單樣式 none=沒有. */
+        }
+
+        nav ul li a{
+            text-decoration: none;
+            /* 底線:沒有 */
+            display: block;
+            /* 做成按鈕 */
+            background-color: var(--border-color);
+            margin-right: 15px;
+            padding-top: 15px;
+            padding-bottom: 15px;
+            padding-left: 20px;
+            padding-right: 20px;
+            /* 外距是margin 內距是padding */
+        
+            border-radius: 5px;
+            /* 圓角 */
+            box-shadow: 2px 2px 2px 2px var(--accent-color);
+            /* 按鈕陰影增加立體感 X軸 Y軸 模糊度 寬度 顏色 */
+            transition: border-radius 1s , box-shadow 1s;
+            /* 特效時長 */
+        }
+        nav ul li a:hover{
+            border-radius: 20px;
+            box-shadow: 2px 2px 2px 2px var(--primary-color);
+        }
+        /* hover當滑鼠滑過時產生的特效 */
+
+        body{
+            background-color:var(--background-color)
+        }
+        .wrapper {
+            width: 1024px;
+            margin-top: 0; 
+            margin-bottom: 0;
+            margin-left: auto;
+            margin-right: auto;
+            /* 自己與外面的距離 */
+        }
+
+        .imgbox {
+            width: 1024px;
+            height: 200px;
+            background-color: var(--accent-color));
+           /* 背景圖 */
+            background-image: url(images/bus.avif);
+            background-position: center center;
+            /* 位置座標 x軸與y軸 */
+            background-size: cover;
+            /*授權允許調整圖片高度*/
+        }
+        .content{
+            background-color:var(--accent-color);
+            text-align: center;
+            /* 文字置中 */
+            padding-top: 30px;
+            padding-bottom: 30px;
+            padding-left: 50px;
+            padding-right: 50px;
+        }
+        .content h1{
+            color: var(--text-secondary);
+            font-size: 36px;
+            /* font都是跟字有關  */
+            margin-bottom: 35px;
+        }
+        .content p{
+            color: var(--text-primary);
+            font-size: 18px;
+            margin-top: 15px;
+            margin-bottom: 20px;
+        }
+
+        .content a{
+            display: block;
+            background-color:var(--primary-color);
+            width: 130px;
+            height: 40px;
+            margin: 0 auto;
+            /* X軸 y軸 */
+            text-decoration: none;
+            /* 底線 :沒有 */
+            color: var(--text-primary);
+            font-size: 20px;
+            font-weight: bold;
+            /* 字的重量:粗體 */
+            line-height: 40px;
+            /* 對應height */
+            border-radius: 5px;
+            box-shadow: 2px 2px 2px 2px var(--secondary-dark);
+            /* 按鈕陰影增加立體感 X軸 Y軸 模糊度 寬度 顏色 */
+            transition: border-radius 1s , box-shadow 1s;
+        }
+
+        .content a:hover{
+            box-shadow: 2px 2px 2px 2px var(--secondary-color);
+            background-color:var(--secondary-dark);
+        }
+
+        .footer{
+            background-color: var(--accent-color);
+            text-align: center;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            margin-top: 5px;
+        }
+        .footer p{
+            font-size: 24px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- # id .class -->
+    <div class="wrapper">
+        <div class="banner">
+            <div class="imgbox"></div>
+            <nav> 
+                <ul>
+                    <li><a href="#">首頁</a></li>
+                    <li><a href="#">最新消息</a></li>
+                    <li><a href="#">合作店家</a></li>
+                    <li><a href="#">關於我們</a></li>
+                    <li><a href="#">聯絡我們</a></li>
+                    
+                </ul>
+            </nav>
+        </div>
+
+        <div class="content">
+            <h1>歡迎光臨</h1>
+            <p>永遠機構正是新手，標題節省威望留在適合前往通訊電池電視劇臺中上面十分研發日子，造型給你接口勝利街道政治付款共同之前顯然常見制定，持續有人建設微笑到底你好廣播都能國內意大利笑道再也，一人任意多個，推薦。</p>
+            <p>水溝商標招標農業一定會註明指揮掌握要是一句生意年齡騎士主持，走出處罰物業很久相應兄弟工資蘋果解壓密碼覺得台中完美，頁面白色那樣黑暗，利潤考核結構機會英雄教學食物液晶數量放棄通信滑鼠笑容防止點評，客人。</p>
+            <p>網頁我家民主把它這位告訴我，檢驗閲讀婦女名稱同時臺灣民眾管理員，研發變化求職昨天等待禁止，手中遠遠，最低提到看見下來無門專業在這突然現在烏日，溫度距離批准信箱一張新人有時分鐘軍隊，等方面，透露一定要。</p>
+            <a href="#">了解更多</a>
+            <!-- ctlorem是產生中文字的呼叫方式(要先安裝) 預設字數128 如果有指定的字數直接加數字 -->
+             <!-- a+Enter就是連結 -->
+              </div>
+
+        <div class="footer">
+        <p>PowerBy Eunice.2026.05</p>
+        </div>
+    </div>
+</body>
+
+</html>

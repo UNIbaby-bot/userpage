@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+
+<html lang="zh-TW">
+
+<head>
+
+    <link rel="stylesheet" href="css/my.css">
+    <link rel="stylesheet" href="css/all.min.css">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>翡翠運動生活館</title>
+
+    ```
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=LXGW+WenKai+Mono+TC&display=swap');
+
+        /* ========================================
+       Emerald Garden Sports Theme
+       翡翠花園運動風格
+       ======================================== */
+
+        :root {
+
+            /* 主色 - 柔和鼠尾草綠 */
+            --primary-color: #7FB174;
+
+            /* 主色深色 */
+            --primary-dark: #689C67;
+
+            /* 輔色 - 薄荷綠 */
+            --secondary-color: #9BCFB8;
+
+            /* 輔色深色 */
+            --secondary-dark: #7EB7A0;
+
+            /* 強調色 - 杜松綠 */
+            --accent-color: #689C97;
+
+            /* 頁面背景 */
+            --background-color: #F5F8F6;
+
+            /* 卡片背景 */
+            --surface-color: #FFFFFF;
+
+            /* 主要文字 */
+            --text-primary: #1B1B1B;
+
+            /* 次要文字 */
+            --text-secondary: #5F6B65;
+
+            /* 邊框色 */
+            --border-color: #DCE8E1;
+        }
+
+        .fw-100 {
+            font-weight: 100;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "LXGW WenKai Mono TC", monospace;
+            background-color: var(--background-color);
+            color: var(--text-primary);
+        }
+
+        .wrapper {
+            width: 1024px;
+            margin: 30px auto;
+            background-color: var(--surface-color);
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(104, 156, 151, 0.12);
+        }
+
+        /* ======================
+       Banner
+       ====================== */
+
+        .imgbox {
+            width: 1024px;
+            height: 320px;
+            background-image: url(images/bus.avif);
+            /* 背景圖 */
+            background-position: center center;
+            background-size: cover;
+        }
+
+        /* ======================
+       Navigation
+       ====================== */
+
+        nav {
+            background-color: var(--surface-color);
+            text-align: center;
+            padding: 18px 0;
+            border-top: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        nav ul {
+            display: inline-block;
+        }
+
+        nav ul li {
+            float: left;
+            list-style-type: none;
+        }
+
+        nav ul li a {
+            display: block;
+            text-decoration: none;
+            color: var(--text-primary);
+            font-weight: bold;
+            padding: 12px 24px;
+            margin-right: 10px;
+            border-radius: 30px;
+            transition: all .3s ease;
+        }
+
+        nav ul li a:hover {
+            background-color: var(--secondary-color);
+            color: #FFFFFF;
+        }
+
+        /* ======================
+       Content
+       ====================== */
+
+        .content {
+            background-color: var(--surface-color);
+            text-align: center;
+            padding: 60px;
+        }
+
+        .content h1 {
+            color: var(--primary-dark);
+            font-size: 42px;
+            font-weight: 900;
+            margin-bottom: 30px;
+        }
+
+        .content p {
+            color: var(--text-primary);
+            font-size: 18px;
+            line-height: 2;
+            margin-bottom: 20px;
+        }
+
+        .content a {
+            display: block;
+            width: 180px;
+            height: 50px;
+            line-height: 50px;
+            margin: 35px auto 0;
+            text-decoration: none;
+            background-color: var(--primary-color);
+            color: #FFFFFF;
+            font-size: 18px;
+            font-weight: bold;
+            border-radius: 30px;
+            box-shadow: 0 5px 15px rgba(127, 177, 116, 0.25);
+            transition: all .3s ease;
+        }
+
+        .content a:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+
+        /* ======================
+       Footer
+       ====================== */
+
+        .footer {
+            background-color: var(--secondary-color);
+            text-align: center;
+            padding: 20px;
+        }
+
+        .footer p {
+            color: var(--text-primary);
+            font-size: 16px;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        /* RWD響應式 */
+
+        @media screen and (max-width:1200px) and (min-width:1025px){
+            .imgbox{
+                background-image: url(images/bus3.avif);
+                background-position: 66% 66%;
+            }
+        }
+
+        @media screen and (max-width:1024px){
+            .wrapper{
+                width: 100%;
+            }
+
+            .imgbox{
+                width: 100%;
+                background-image: url(images/bus2.avif);
+                height: 140px;
+            }
+
+            nav ul{
+                display: block;
+                padding-left: 10px;
+                margin: 0;
+            }
+
+            nav ul li{
+                float: none;
+                margin-bottom: 10px;
+            }
+
+            nav ul li a{
+                background-color: var(--primary-dark);
+                color: var(--text-primary);
+            }
+
+            .content{
+                padding-left: 10px;
+                padding-right: 10px;
+            }
+
+            .content p {
+                font-size: 18px;
+                line-height: 1.4;
+                text-align: left;
+            }
+        }
+
+    </style>
+    ```
+
+</head>
+
+<body>
+
+
+    ```
+    <div class="wrapper">
+
+        <div class="banner">
+
+            <div class="imgbox"></div>
+
+            <nav>
+                <ul>
+                    <li>
+                        <a href="#" class="fw-900">
+                            <i class="fa-regular fa-house fa-2xl btn-text-primary "  ></i> 首頁</a>
+
+                    </li>
+                    <li><a href="#" class="fw-900">
+                        <i class="fa-regular fa-clone btn-text-primary fa-2xl "  ></i> 最新消息</a>
+                    </li>
+                    <li><a href="#" class="fw-900">
+                        <i class="fa-solid fa-book-open-reader fa-2xl btn-text-primary"></i>
+                        課程介紹</a></li>
+                    <li><a href="#" class="fw-900">
+                        <i class="fa-solid fa-people-group fa-2xl btn-text-primary"></i>
+                         關於我們</a></li>
+                    <li><a href="#" class="fw-900">
+                        <i class="fa-solid fa-handshake fa-2xl  btn-text-primary"></i>
+                        聯絡我們</a></li>
+                </ul>
+            </nav>
+
+        </div>
+
+        <div class="content">
+
+            <h1 class="fw-1000">
+                <i class="fa-solid fa-person-snowboarding fa-2xl  .btn-text-primary"></i>
+                在自然中找回運動的節奏</h1>
+
+            <p class="fw-300">
+                我們相信運動不只是追求成績，更是一種健康且持續的生活方式。
+                在舒適的環境中，讓身體與心靈同步成長，感受每一次運動帶來的改變與能量。
+            </p>
+
+            <p class="fw-700">
+                提供完善的有氧訓練區、重量訓練區以及專業課程規劃，
+                無論是剛開始接觸運動的新手，還是希望提升表現的運動愛好者，
+                都能找到最適合自己的訓練方式。
+            </p>
+
+            <p class="fw-800">
+                加入我們的運動社群，與志同道合的夥伴一起享受流汗的快樂，
+                養成規律運動習慣，打造更健康、更有活力的每一天。
+            </p>
+
+            <a href="#">立即體驗</a>
+
+        </div>
+
+        <div class="footer">
+            <p>PowerBy Eunice．Emerald Sports Life © 2026</p>
+        </div>
+
+    </div>
+    ```
+
+</body>
+
+</html>

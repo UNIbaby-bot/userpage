@@ -1,0 +1,339 @@
+
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fitness Club 健身空間</title>
+
+    <style>
+
+        /* =========================
+           RESET
+        ========================= */
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* =========================
+           BODY
+        ========================= */
+        body{
+            background-color: #F6F7F2;
+            color: #1B1B1B;
+            font-family: "Microsoft JhengHei", sans-serif;
+            line-height: 1.8;
+            letter-spacing: 1px;
+        }
+
+        /* =========================
+           WRAPPER
+        ========================= */
+        .wrapper{
+            width: 1024px;
+            margin: 30px auto;
+            background-color: #ffffff;
+            border-radius: 18px;
+            overflow: hidden;
+            box-shadow: 0 10px 35px rgba(0,0,0,0.08);
+        }
+
+        /* =========================
+           BANNER IMAGE
+        ========================= */
+        .imgbox{
+            width: 1024px;
+            height: 280px;
+
+            background-image:
+            linear-gradient(
+                rgba(58, 90, 64, 0.35),
+                rgba(58, 90, 64, 0.35)
+            ),
+            url(images/bus.avif);
+
+            background-position: center center;
+            background-size: cover;
+        }
+
+        /* =========================
+           NAVIGATION
+        ========================= */
+        nav{
+            background-color: #3A5A40;
+            text-align: center;
+            padding-top: 18px;
+            padding-bottom: 18px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+        }
+
+        nav ul{
+            display: inline-block;
+        }
+
+        nav ul li{
+            float: left;
+            list-style-type: none;
+        }
+
+        nav ul li a{
+            display: block;
+
+            text-decoration: none;
+
+            background-color: transparent;
+            color: #F6F7F2;
+
+            margin-right: 12px;
+
+            padding-top: 12px;
+            padding-bottom: 12px;
+            padding-left: 24px;
+            padding-right: 24px;
+
+            border: 1px solid rgba(255,255,255,0.15);
+            border-radius: 10px;
+
+            font-size: 15px;
+            font-weight: bold;
+
+            transition: 0.35s;
+        }
+
+        nav ul li a:hover{
+            background-color: #A3B18A;
+            color: #1B1B1B;
+
+            transform: translateY(-2px);
+
+            box-shadow: 0 6px 15px rgba(0,0,0,0.12);
+        }
+
+        /* =========================
+           CONTENT
+        ========================= */
+        .content{
+            background-color: #ffffff;
+
+            text-align: center;
+
+            padding-top: 60px;
+            padding-bottom: 70px;
+            padding-left: 80px;
+            padding-right: 80px;
+        }
+
+        .content h1{
+            color: #3A5A40;
+
+            font-size: 42px;
+            font-weight: 800;
+
+            margin-bottom: 30px;
+
+            position: relative;
+        }
+
+        .content h1::after{
+            content: "";
+
+            display: block;
+
+            width: 80px;
+            height: 4px;
+
+            background-color: #A3B18A;
+
+            margin: 15px auto 0 auto;
+
+            border-radius: 10px;
+        }
+
+        .content p{
+            color: #4A4A4A;
+
+            font-size: 17px;
+
+            margin-top: 20px;
+            margin-bottom: 20px;
+
+            text-align: justify;
+        }
+
+        /* BUTTON */
+        .content a{
+            display: inline-block;
+
+            background-color: #3A5A40;
+            color: #F6F7F2;
+
+            width: 180px;
+            height: 52px;
+
+            margin-top: 25px;
+
+            text-decoration: none;
+
+            font-size: 18px;
+            font-weight: bold;
+
+            line-height: 52px;
+
+            border-radius: 12px;
+
+            transition: 0.35s;
+
+            box-shadow: 0 8px 20px rgba(58, 90, 64, 0.25);
+        }
+
+        .content a:hover{
+            background-color: #A3B18A;
+            color: #1B1B1B;
+
+            transform: translateY(-3px);
+
+            box-shadow: 0 12px 25px rgba(0,0,0,0.15);
+        }
+
+        /* =========================
+           FOOTER
+        ========================= */
+        .footer{
+            background-color: #3A5A40;
+
+            text-align: center;
+
+            padding-top: 20px;
+            padding-bottom: 20px;
+        }
+
+        .footer p{
+            color: #F6F7F2;
+
+            font-size: 15px;
+            font-weight: 500;
+
+            letter-spacing: 2px;
+        }
+
+        /* =========================
+           RWD
+        ========================= */
+        @media screen and (max-width: 1024px){
+
+            .wrapper{
+                width: 95%;
+            }
+
+            .imgbox{
+                width: 100%;
+            }
+
+            .content{
+                padding-left: 30px;
+                padding-right: 30px;
+            }
+
+            nav ul li a{
+                padding-left: 18px;
+                padding-right: 18px;
+                margin-right: 8px;
+            }
+        }
+
+        @media screen and (max-width: 768px){
+
+            nav ul li{
+                float: none;
+                margin-bottom: 10px;
+            }
+
+            nav ul li a{
+                margin-right: 0;
+            }
+
+            .imgbox{
+                height: 220px;
+            }
+
+            .content h1{
+                font-size: 32px;
+            }
+
+            .content p{
+                font-size: 16px;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <div class="wrapper">
+
+        <!-- Banner -->
+        <div class="banner">
+
+            <div class="imgbox"></div>
+
+            <!-- Navigation -->
+            <nav>
+                <ul>
+                    <li><a href="#">首頁</a></li>
+                    <li><a href="#">課程介紹</a></li>
+                    <li><a href="#">教練團隊</a></li>
+                    <li><a href="#">會員方案</a></li>
+                    <li><a href="#">聯絡我們</a></li>
+                </ul>
+            </nav>
+
+        </div>
+
+        <!-- Content -->
+        <div class="content">
+
+            <h1>打造更強大的自己</h1>
+
+            <p>
+                在 Fitness Club，我們相信健身不只是改變體態，
+                更是一種提升生活品質與自我價值的方式。
+                無論你是剛開始接觸運動的新手，
+                還是追求突破的健身愛好者，
+                我們都提供專業、安全且舒適的訓練環境，
+                陪伴你一步一步達成理想目標。
+            </p>
+
+            <p>
+                館內配備完整重訓器材、有氧設備與專業課程空間，
+                並由經驗豐富的教練團隊提供個人化指導，
+                協助你建立正確訓練習慣。
+                從增肌、減脂到體態雕塑，
+                我們致力於讓每位會員都能感受到成長與改變。
+            </p>
+
+            <p>
+                現代化空間設計結合自然綠色品牌風格，
+                打造舒適且充滿能量的運動氛圍。
+                在這裡，不只是健身，
+                更是一種積極、自律與健康的生活態度。
+            </p>
+
+            <a href="#">立即加入</a>
+
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <p>Fitness Club © 2026 All Rights Reserved.</p>
+        </div>
+
+    </div>
+
+</body>
+
+</html>
+```
